@@ -62,6 +62,9 @@ class HomeFragment : Fragment() {
         }
         val sdf = SimpleDateFormat("EEE, MMM yyyy")
         dateFormated = sdf.format(currentDate)
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            root.tomorrow_date_tv.text = tomorrowDate.dayOfWeek.toString()
+        }
 
         root.today_date_tv.text = dateFormated
         FirestoreClass().getTodayTimetable(this, currentDate, user.uid, tomorrowDate)
@@ -149,9 +152,6 @@ class HomeFragment : Fragment() {
                 }
             }
             tomorrow_NumTasks_tv.text = "$taskCount\nTasks"
-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-                tomorrow_date_tv.text = tomorrowDate.dayOfWeek.toString()
-            }
         }
 
         root.task_card.setOnClickListener {

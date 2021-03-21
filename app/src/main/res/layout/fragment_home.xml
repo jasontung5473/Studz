@@ -340,7 +340,7 @@
                         android:textColor="@color/black"
                         android:layout_marginTop="10dp"
                         android:textSize="13sp"
-                        android:text=" Fri, Feb 26"
+                        android:text="date"
                         />
                 </LinearLayout>
 
